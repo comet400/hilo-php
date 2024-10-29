@@ -1,0 +1,171 @@
+/* File: hiloStyles.css
+Project: PROG2001-24F-Sec1-Web Design 
+Programmer: Lukas Fukuoka Vieira
+First version: 21 of Oct, 2024
+Description: This file contains the CSS styles for the High-Low Number Guessing Game. 
+*/
+
+/* General Body Styling */
+body {
+  font-family: "Arial", sans-serif; /* Sets the default font family */
+  background: linear-gradient(
+    to bottom,
+    #76c7f2,
+    #4a90e2
+  ); /* Gradient background for a smooth visual effect */
+  color: #fff; /* White text color */
+  margin: 0; /* Removes default body margin */
+  padding: 0; /* Removes default body padding */
+  display: flex; /* Flexbox layout to center content */
+  flex-direction: column; /* Flex items arranged vertically */
+  align-items: center; /* Horizontally centers the content */
+  justify-content: center; /* Vertically centers the content */
+  min-height: 100vh; /* Sets the minimum height to fill the viewport */
+  background-image: url("niagara-falls-background.jpg"); /* Background image (Niagara Falls) */
+  background-size: cover; /* Scales the background image to cover the entire screen */
+  background-attachment: fixed; /* Ensures the background image stays fixed during scrolling */
+}
+
+/* Waterfall Animation */
+@keyframes waterfall {
+  0% {
+    transform: translateY(0); /* Starts at the top of the screen */
+    opacity: 0.7; /* Initial opacity */
+  }
+  100% {
+    transform: translateY(
+      80vh
+    ); /* Moves the element down by 90% of the viewport height */
+    opacity: 0; /* Fades out as it moves */
+  }
+}
+
+/* Styling for each waterfall */
+.waterfall {
+  position: absolute; /* Positioned relative to the document */
+  top: -50px; /* Starts slightly off the screen at the top */
+  left: 50%; /* Positioned at 50% from the left */
+  width: 11px; /* Set width for the waterfall */
+  height: 140px; /* Set height for the waterfall */
+  background: rgba(
+    255,
+    255,
+    255,
+    0.5
+  ); /* Semi-transparent white for the waterfall color */
+  animation: waterfall 4s infinite; /* Apply the waterfall animation, repeating infinitely */
+}
+
+/* Additional waterfall variations */
+.waterfall:nth-child(2) {
+  left: 60%; /* Positions the second waterfall to the right */
+  animation-duration: 3.5s; /* Slightly faster animation duration */
+}
+
+.waterfall:nth-child(3) {
+  left: 45%; /* Positions the third waterfall to the left */
+  animation-duration: 4.5s; /* Slightly slower animation duration */
+}
+
+/* Title Styling */
+h1 {
+  font-size: 3rem; /* Large font size for the main heading */
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7); /* Adds shadow to the text for better readability */
+  color: #ffffff; /* White text color */
+  margin-bottom: 0.5rem; /* Small margin below the title */
+  animation: fadeIn 2s ease-out forwards; /* Fade-in animation for the title */
+}
+
+/* Game Instructions Styling */
+h2 {
+  font-size: 2rem; /* Large font size for instructions */
+  color: #ffffff; /* White text color */
+  margin: 1rem 0; /* Margin above and below the heading */
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5); /* Subtle text shadow */
+}
+
+/* Form Styling */
+form {
+  background-color: rgba(
+    255,
+    255,
+    255,
+    0.3
+  ); /* Semi-transparent background for the form */
+  padding: 20px; /* Padding inside the form */
+  border-radius: 12px; /* Rounded corners */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Adds a shadow to create depth */
+  text-align: center; /* Center the form content */
+  backdrop-filter: blur(
+    10px
+  ); /* Adds a slight blur effect to the background behind the form */
+  margin-bottom: 20px; /* Space below the form */
+}
+
+/* Form Input Fields Styling */
+input[type="text"],
+input[type="number"] {
+  padding: 10px; /* Adds padding inside the input field */
+  margin: 10px 0; /* Adds margin above and below each input */
+  border-radius: 8px; /* Rounded corners for the input fields */
+  border: none; /* Removes the default border */
+  font-size: 1rem; /* Sets a standard font size */
+  width: 80%; /* Makes the input field occupy 80% of the parent width */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow for input fields */
+  text-align: center; /* Centers the text inside the input */
+}
+
+/* Buttons Styling */
+button {
+  background-color: #4a90e2; /* Button background color (blue) */
+  color: #fff; /* White text color */
+  border: none; /* Removes the default border */
+  padding: 12px 24px; /* Padding inside the button */
+  border-radius: 8px; /* Rounded corners for the button */
+  font-size: 1rem; /* Font size for the button text */
+  cursor: pointer; /* Changes the cursor to a pointer when hovering */
+  transition: background-color 0.3s ease, transform 0.3s ease; /* Smooth transition on hover */
+}
+
+/* Button Hover Effect */
+button:hover {
+  background-color: #76c7f2; /* Changes the background color on hover */
+  transform: scale(1.05); /* Slightly enlarges the button on hover */
+}
+
+/* Winning Message Styling */
+p {
+  font-size: 1.5rem; /* Slightly larger font size for the winning message */
+  margin-top: 20px; /* Space above the paragraph */
+  color: #ffffff; /* White text color */
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5); /* Adds shadow for readability */
+}
+
+/* Keyframes for Fade In Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0; /* Starts fully transparent */
+    transform: translateY(-50px); /* Starts with an upward translation */
+  }
+  to {
+    opacity: 1; /* Ends fully opaque */
+    transform: translateY(0); /* Ends with no translation (normal position) */
+  }
+}
+
+/* Niagara Falls Background Image Styling */
+body::before {
+  content: ""; /* Creates a pseudo-element before the body */
+  position: fixed; /* Sticks the pseudo-element in place */
+  top: 0; /* Aligns with the top of the screen */
+  left: 0; /* Aligns with the left of the screen */
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  background: rgba(
+    0,
+    0,
+    0,
+    0.5
+  ); /* Adds a dark overlay to the background image */
+  z-index: -1; /* Ensures the overlay is behind all other elements */
+}

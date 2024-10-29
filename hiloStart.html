@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<!-- 
+File: hiloStart.html
+Project: PROG2001-24F-Sec1-Web Design 
+Programmer: Lukas Fukuoka Vieira
+First version: 21 of Oct, 2024
+Description: This file contains the HTML code for the start page of the Hi-Lo Guessing Game.
+-->
+
+<html lang="en">
+  <head>
+    <!-- Meta tags for character encoding and viewport scaling -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hi-Lo Guessing Game</title>
+
+    <!-- Link to external CSS file for styling -->
+    <link rel="stylesheet" href="hiloStyles.css" />
+
+    <!-- Inline JavaScript for form validation -->
+    <script>
+      // Function to validate the form before submission
+      function validateForm() {
+        // Get the value entered in the username input field
+        var name = document.getElementById("username").value;
+        // Check if the name is empty or consists only of whitespace
+        if (name.trim() === "") {
+          // Alert the user if the name is blank
+          alert("Name cannot be blank.");
+          return false; // Prevent form submission if validation fails
+        }
+        return true; // Allow form submission if validation passes
+      }
+    </script>
+  </head>
+
+  <script>
+    // Function to create waterfall effects dynamically on the page
+    function createWaterfallEffects() {
+      const numberOfWaterfalls = 10; // Number of waterfall elements to create
+      const numberOfSplashes = 5; // Number of splash elements (not used yet)
+
+      // Loop to create multiple waterfall elements
+      for (let i = 0; i < numberOfWaterfalls; i++) {
+        // Create a new div element for each waterfall
+        const waterfall = document.createElement("div");
+        waterfall.classList.add("waterfall"); // Add 'waterfall' class for CSS styling
+
+        // Set a random left position for the waterfall between 10% and 90% of the screen width
+        waterfall.style.left = Math.random() * 80 + 10 + "%";
+
+        // Set a random animation duration between 3 and 6 seconds
+        waterfall.style.animationDuration = Math.random() * 3 + 3 + "s";
+
+        // Append the created waterfall element to the document body
+        document.body.appendChild(waterfall);
+      }
+    }
+
+    // Call the createWaterfallEffects function when the window finishes loading
+    window.onload = createWaterfallEffects;
+  </script>
+
+  <body>
+    <!-- Main heading for the game -->
+    <h1>Welcome to the Hi-Lo Guessing Game</h1>
+
+    <!-- Form for the user to input their name and start the game -->
+    <form method="POST" action="hiloGame.php" onsubmit="return validateForm()">
+      <label for="username">Please enter your name:</label>
+      <!-- Text input for the user's name, required for form submission -->
+      <input type="text" id="username" name="username" required />
+
+      <!-- Submit button to start the game -->
+      <button type="submit">Start Game</button>
+    </form>
+  </body>
+</html>
